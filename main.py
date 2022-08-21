@@ -8,6 +8,9 @@ FilePath: /timingzip/main.py
 '''
 import zipfile, os, time
 
+from loguru import logger
+
+
 out_zip_name = 'pz_save.zip'
 outpath = '/home/w0330t/Zomboid/SavesBak/'
 inpath = '/home/w0330t/Zomboid/Saves/'
@@ -22,4 +25,5 @@ while True:
         for filename in filenames:
             z.write(os.path.join(dirpath, filename),fpath+filename)
     z.close()
+    logger.info('保存完成。')
     time.sleep(interval)
